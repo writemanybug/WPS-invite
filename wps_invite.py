@@ -4,19 +4,16 @@ import requests
 import pytz
 import datetime
 from io import StringIO
-
-
-
-
+import time
 
 # 初始化信息
-SCKEY = ''  # '*********复制SERVER酱的SCKEY进来*************(保留引号)'
+SCKEY = 'SCU156665Ta65e0a98fcbd48d436e7fb316d3eab4a601625fa7a68d'  # '*********复制SERVER酱的SCKEY进来*************(保留引号)'
 data = {
     "wps_invite": [
         {
             "name": "水哥他爸",
-            "invite_userid": 9999999,  # "*********复制手机WPS个人信息中的用户ID进来，类似括号内容(191641526)*************(不保留双引号)",
-            "sid": ""  # network获取wps_sid
+            "invite_userid": 1168213251,  # "*********复制手机WPS个人信息中的用户ID进来，类似括号内容(191641526)*************(不保留双引号)",
+            "sid": "V02SUoWZc08TiDKbf7RRKtzbccMWIcg00ab4512a0045a18503"  # network获取wps_sid
         }
     ]
 }
@@ -63,7 +60,22 @@ def main():
         "V02SPoOluAnWda0dTBYTXpdetS97tyI00a16135e002684bb5c",
         "V02Sb8gxW2inr6IDYrdHK_ywJnayd6s00ab7472b0026849b17",
         "V02SwV15KQ_8n6brU98_2kLnnFUDUOw00adf3fda0026934a7f",
-        "V02SC1mOHS0RiUBxeoA8NTliH2h2NGc00a803c35002693584d"
+        "V02SC1mOHS0RiUBxeoA8NTliH2h2NGc00a803c35002693584d",
+        'V02S2UBSfNlvEprMOn70qP3jHPDqiZU00a7ef4a800341c7c3b',
+        'V02StVuaNcoKrZ3BuvJQ1FcFS_xnG2k00af250d4002664c02f',
+        'V02SWIvKWYijG6Rggo4m0xvDKj1m7ew00a8e26d3002508b828',
+        'V02Sr3nJ9IicoHWfeyQLiXgvrRpje6E00a240b890023270f97',
+        'V02SBsNOf4sJZNFo4jOHdgHg7-2Tn1s00a338776000b669579',
+        'V02ScVbtm2pQD49ArcgGLv360iqQFLs014c8062e000b6c37b6',
+        'V02S2oI49T-Jp0_zJKZ5U38dIUSIl8Q00aa679530026780e96',
+        'V02ShotJqqiWyubCX0VWTlcbgcHqtSQ00a45564e002678124c',
+        'V02SFiqdXRGnH5oAV2FmDDulZyGDL3M00a61660c0026781be1',
+        'V02S7tldy5ltYcikCzJ8PJQDSy_ElEs00a327c3c0026782526',
+        'V02SPoOluAnWda0dTBYTXpdetS97tyI00a16135e002684bb5c',
+        'V02Sb8gxW2inr6IDYrdHK_ywJnayd6s00ab7472b0026849b17',
+        'V02SwV15KQ_8n6brU98_2kLnnFUDUOw00adf3fda0026934a7f',
+        'V02SC1mOHS0RiUBxeoA8NTliH2h2NGc00a803c35002693584d'
+
     ]
     sio.write("\n\n==========wps邀请==========\n\n")
     for item in wps_inv:
@@ -74,7 +86,7 @@ def main():
             sio.write("邀请失败：用户ID错误，请重新复制手机WPS个人信息中的用户ID并修改'invite_userid'项,注意不保留双引号\n\n")
     desp = sio.getvalue()
     pushWechat(desp, nowtime)
-    # print(desp)
+    print(desp)
     return desp
 
 
@@ -85,6 +97,7 @@ def wps_invite(sid: list, invite_userid: int) -> None:
         headers = {
             'sid': i
         }
+        time.sleep(10)
         r = s.post(invite_url, headers=headers, data={
             'invite_userid': invite_userid})
         sio.write("ID={}, 状态码: {}, \n\n ".format(str(index + 1).zfill(2), r.status_code))
