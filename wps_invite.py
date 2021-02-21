@@ -7,13 +7,13 @@ from io import StringIO
 import time
 
 # 初始化信息
-SCKEY = 'SCU156665Ta65e0a98fcbd48d436e7fb316d3eab4a601625fa7a68d'  # '*********复制SERVER酱的SCKEY进来*************(保留引号)'
+SCKEY = 'xxxxxxxxxxxxxxxxxxxxxxxx'  # '*********复制SERVER酱的SCKEY进来*************(保留引号)'
 data = {
     "wps_invite": [
         {
             "name": "水哥他爸",
-            "invite_userid": 1168213251,  # "*********复制手机WPS个人信息中的用户ID进来，类似括号内容(191641526)*************(不保留双引号)",
-            "sid": "V02SUoWZc08TiDKbf7RRKtzbccMWIcg00ab4512a0045a18503"  # network获取wps_sid
+            "invite_userid": 11699139251,  # "*********复制手机WPS个人信息中的用户ID进来，类似括号内容(191641526)*************(不保留双引号)",
+            "sid": "xxxxxxxxxx"  # network获取wps_sid
         }
     ]
 }
