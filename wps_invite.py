@@ -23,21 +23,21 @@ sio.seek(0, 2)  # 将读写位置移动到结尾
 s = requests.session()
 tz = pytz.timezone('Asia/Shanghai')
 nowtime = datetime.datetime.now(tz).strftime("%Y-%m-%d %H:%M:%S")
-sio.write("--------------------------" + nowtime + "----------------------------\n\n")
+sio.write("-" + nowtime + "-\n\n")
 
 
-# 微信推送
+# APP
 def pushWechat(desp, nowtime):
     ssckey = SCKEY
-    send_url = 'https://sc.ftqq.com/' + ssckey + '.send'
+    send_url = 'https://sctapi.ftqq.com/' + ssckey + '.send'
     if '失败' in desp:
         params = {
-            'text': 'WPS小程序签到失败提醒' + nowtime,
+            'title': 'WPS小程序邀请失败提醒' + nowtime,
             'desp': desp
         }
     else:
         params = {
-            'text': 'WPS小程序签到提醒' + nowtime,
+            'title': 'WPS小程序邀请成功' + nowtime,
             'desp': desp
         }
     requests.post(send_url, params=params)
