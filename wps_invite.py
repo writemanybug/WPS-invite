@@ -86,7 +86,7 @@ def wps_invite(sid: list, invite_userid: int) -> None:
         time.sleep(10)
         r = s.post(invite_url, headers=headers, data={
             'invite_userid': invite_userid})
-        sio.write("ID={}, 状态码: {}, \n\n ".format(str(index + 1).zfill(2), r.status_code))
+        # sio.write("ID={}, 状态码: {}, \n\n ".format(str(index + 1).zfill(2), r.status_code))
 
 
 def main_handler(event, context):
